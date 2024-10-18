@@ -1,6 +1,6 @@
 import 'package:flutter/foundation.dart' show immutable;
 
-import '/models/weather.dart';
+import 'weather.dart';
 
 @immutable
 class HourlyWeather {
