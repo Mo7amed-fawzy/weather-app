@@ -5,6 +5,7 @@ extension Capitalize on String {
     return length > 0 ? '${this[0].toUpperCase()}${substring(1)}' : '';
     // بتشك علي السترنج انو فيه كتابة اصلا
     // فحالة في كتابة باخد الحرف الاول this[0] وبستعمل فنكشن اخليه كبير toUpperCase()
+    //substring(int startIndex, [int endIndex]) باخد باقي النص من اول حاجه والنهايه اونشنال
     //باخد باقي السترنج باستخدام substring(1) (ببدا من الحرف الثاني) وبحتفظ بيها زي مهيا.
   }
 }
