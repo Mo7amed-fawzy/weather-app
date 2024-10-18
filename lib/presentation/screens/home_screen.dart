@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:weather_app/presentation/screens/weather_screen.dart';
+import 'package:weather_app/utils/constants/app_colors.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -12,29 +14,29 @@ class _HomeScreenState extends State<HomeScreen> {
 
   final _destinations = const [
     NavigationDestination(
-      icon: Icon(Icons.home_outlined),
-      selectedIcon: Icon(Icons.home),
+      icon: Icon(Icons.home_outlined, color: Colors.white),
+      selectedIcon: Icon(Icons.home, color: Colors.white),
       label: '',
     ),
     NavigationDestination(
-      icon: Icon(Icons.search_outlined),
-      selectedIcon: Icon(Icons.search),
+      icon: Icon(Icons.search_outlined, color: Colors.white),
+      selectedIcon: Icon(Icons.search, color: Colors.white),
       label: '',
     ),
     NavigationDestination(
-      icon: Icon(Icons.wb_sunny_outlined),
-      selectedIcon: Icon(Icons.wb_sunny),
+      icon: Icon(Icons.wb_sunny_outlined, color: Colors.white),
+      selectedIcon: Icon(Icons.wb_sunny, color: Colors.white),
       label: '',
     ),
     NavigationDestination(
-      icon: Icon(Icons.settings_outlined),
-      selectedIcon: Icon(Icons.settings),
+      icon: Icon(Icons.settings_outlined, color: Colors.white),
+      selectedIcon: Icon(Icons.settings, color: Colors.white),
       label: '',
     ),
   ];
 
   final _screens = [
-    const Center(child: Text('Home Screen')),
+    const WeatherScreen(),
     const Center(child: Text('Search Screen')),
     const Center(child: Text('Weather Screen')),
     const Center(child: Text('Settings Screen')),
@@ -43,21 +45,23 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('HomeScreen'),
-      ),
       body: _screens[_currentPageIndex],
-      bottomNavigationBar: NavigationBar(
-        destinations: _destinations,
-        labelBehavior: NavigationDestinationLabelBehavior.alwaysHide,
-        //بخلي الايكونز متظبطين فالنص
-        selectedIndex: _currentPageIndex,
-        indicatorColor: Colors.transparent, // بخلي المختارها لونها عادي
-        onDestinationSelected: (index) {
-          setState(() {
-            _currentPageIndex = index;
-          });
-        },
+      bottomNavigationBar: NavigationBarTheme(
+        data: const NavigationBarThemeData(
+          backgroundColor: AppColors.secondaryBlack,
+        ),
+        child: NavigationBar(
+          destinations: _destinations,
+          labelBehavior: NavigationDestinationLabelBehavior.alwaysHide,
+          //بخلي الايكونز متظبطين فالنص
+          selectedIndex: _currentPageIndex,
+          indicatorColor: Colors.transparent, // بخلي المختارها لونها عادي
+          onDestinationSelected: (index) {
+            setState(() {
+              _currentPageIndex = index;
+            });
+          },
+        ),
       ),
     );
   }
