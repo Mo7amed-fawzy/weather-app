@@ -1,4 +1,3 @@
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:weather_app/features/data/providers/get_city_forecast_provider.dart';
@@ -19,50 +18,10 @@ class FamousCityTile extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    if (kDebugMode) {
-      print('Fetching weather data from provider for قبل ${city.name}');
-    }
-
     final currentWeather = ref.watch(cityForecastProvider(city.name));
-
-    if (currentWeather.isLoading) {
-      if (kDebugMode) {
-        print('Loading data for ${city.name}');
-      }
-    } else if (currentWeather.hasError) {
-      if (kDebugMode) {
-        print('Error fetching data for ${city.name}: ${currentWeather.error}');
-      }
-    } else if (currentWeather.hasValue) {
-      final weather = currentWeather.value;
-      if (kDebugMode) {
-        print('Fetched data for ${city.name}: ${weather?.main.temp}');
-      }
-    }
-    if (kDebugMode) {
-      print('Fetching weather data from provider forبعد ${city.name}');
-    }
-
-    if (currentWeather.isLoading) {
-      if (kDebugMode) {
-        print('Loading data for ${city.name}');
-      }
-    } else if (currentWeather.hasError) {
-      if (kDebugMode) {
-        print('Error fetching data for ${city.name}: ${currentWeather.error}');
-      }
-    } else {
-      if (kDebugMode) {
-        print('Fetched data for ${city.name}: ${currentWeather.error}');
-      }
-    }
 
     return currentWeather.when(
       data: (weather) {
-        if (kDebugMode) {
-          print('Weather data forمدن ${city.name}: ${weather.main.temp}');
-        }
-
         return Padding(
           padding: const EdgeInsets.all(
             0.0,
@@ -124,10 +83,6 @@ class FamousCityTile extends ConsumerWidget {
         );
       },
       error: (error, stackTrace) {
-        if (kDebugMode) {
-          print('Error for cityمشكلة هنا ${city.name}: $error');
-        }
-
         return Center(
           child: Text(error.toString()),
         );
@@ -138,15 +93,5 @@ class FamousCityTile extends ConsumerWidget {
         );
       },
     );
-  }
-}
-
-double parseToDouble(dynamic value) {
-  if (value is int) {
-    return value.toDouble();
-  } else if (value is double) {
-    return value;
-  } else {
-    throw Exception('Unexpected value type');
   }
 }

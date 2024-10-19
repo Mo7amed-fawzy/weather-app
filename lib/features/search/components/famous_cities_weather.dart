@@ -1,5 +1,6 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:weather_app/features/details/weather_detail_screen.dart';
 import 'package:weather_app/features/search/widgets/city_weather_tile.dart';
 import 'package:weather_app/utils/models/famous_city_local.dart';
 
@@ -30,7 +31,12 @@ class FamousCitiesWeather extends StatelessWidget {
         }
 
         return InkWell(
-          onTap: () {},
+          onTap: () {
+            Navigator.of(context).push(MaterialPageRoute(
+                builder: (_) => WeatherDetailScreen(
+                      cityName: city.name,
+                    )));
+          },
           child: FamousCityTile(
             index: index,
             city: city,
