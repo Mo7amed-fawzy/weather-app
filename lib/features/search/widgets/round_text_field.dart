@@ -35,6 +35,7 @@ class RoundTextField extends StatelessWidget {
             color: AppColors.grey,
             fontWeight: FontWeight.w400,
           ),
+          contentPadding: EdgeInsets.symmetric(vertical: 15.0),
         ),
       ),
     );

@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:weather_app/features/data/providers/get_current_weather_provider.dart';
-import 'package:weather_app/features/home/views/gradient_container.dart';
-import 'package:weather_app/features/home/views/hourly_forecast_view.dart';
-import 'package:weather_app/features/home/views/weather_info.dart';
+import 'package:weather_app/features/home/components/gradient_container.dart';
+import 'package:weather_app/features/home/components/hourly_forecast_view.dart';
+import 'package:weather_app/features/home/components/weather_info.dart';
 import 'package:weather_app/utils/constants/text_styles.dart';
 import 'package:weather_app/utils/extensions/datetime.dart';
 

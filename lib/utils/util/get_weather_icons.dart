@@ -1,6 +1,6 @@
 String getWeatherIcon({
   required int idweatherCode,
-  required bool isNight,
+  bool isNight = false,
 }) {
   String dayOrNight = isNight ? 'n' : 'd';
   String weatherCondition = 'assets/icons/01$dayOrNight.png';
@@ -31,7 +31,7 @@ String getWeatherIcon({
 }
 
 // بتربط الاي دي الجاي من ايبياي موقع (Open-Meteo) للمسار بتاع الصور
-String getWeatherIcon2(int id, bool isNight) {
+String getWeatherIcon2(int id, {bool isNight = false}) {
   String dayOrNight = isNight ? 'n' : 'd';
 
   if (id == 0) {
