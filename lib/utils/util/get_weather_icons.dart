@@ -1,74 +1,79 @@
 String getWeatherIcon({
-  required int weatherCode,
+  required int idweatherCode,
+  required bool isNight,
 }) {
-  String weatherCondition = '01d';
+  String dayOrNight = isNight ? 'n' : 'd';
+  String weatherCondition = 'assets/icons/01$dayOrNight.png';
 
-  if (weatherCode == 801) {
-    weatherCondition = 'assets/icons/02d.png';
-  } else if (weatherCode == 802) {
-    weatherCondition = 'assets/icons/03d.png';
-  } else if (weatherCode == 803) {
-    weatherCondition = 'assets/icons/04d.png';
-  } else if (weatherCode == 804) {
-    weatherCondition = 'assets/icons/04d.png';
-  } else if (weatherCode == 800) {
-    weatherCondition = 'assets/icons/01d.png';
-  } else if (weatherCode > 700) {
-    weatherCondition = 'assets/icons/50d.png'; // 50d حالات ضباب اكبر من 700
-  } else if (weatherCode >= 600) {
-    weatherCondition = 'assets/icons/13d.png';
-  } else if (weatherCode >= 500) {
-    weatherCondition = 'assets/icons/10d.png';
-  } else if (weatherCode >= 300) {
-    weatherCondition = 'assets/icons/09d.png';
-  } else if (weatherCode >= 200) {
-    weatherCondition = 'assets/icons/11d.png';
+  if (idweatherCode == 801) {
+    weatherCondition = 'assets/icons/02$dayOrNight.png';
+  } else if (idweatherCode == 802) {
+    weatherCondition = 'assets/icons/03$dayOrNight.png';
+  } else if (idweatherCode == 803) {
+    weatherCondition = 'assets/icons/04$dayOrNight.png';
+  } else if (idweatherCode == 804) {
+    weatherCondition = 'assets/icons/04$dayOrNight.png';
+  } else if (idweatherCode == 800) {
+    weatherCondition = 'assets/icons/01$dayOrNight.png';
+  } else if (idweatherCode > 700) {
+    weatherCondition = 'assets/icons/50$dayOrNight.png';
+  } else if (idweatherCode >= 600) {
+    weatherCondition = 'assets/icons/13$dayOrNight.png';
+  } else if (idweatherCode >= 500) {
+    weatherCondition = 'assets/icons/10$dayOrNight.png';
+  } else if (idweatherCode >= 300) {
+    weatherCondition = 'assets/icons/09$dayOrNight.png';
+  } else if (idweatherCode >= 200) {
+    weatherCondition = 'assets/icons/11$dayOrNight.png';
   }
 
   return weatherCondition;
 }
 
 // بتربط الاي دي الجاي من ايبياي موقع (Open-Meteo) للمسار بتاع الصور
-String getWeatherIcon2(int id) {
+String getWeatherIcon2(int id, bool isNight) {
+  String dayOrNight = isNight ? 'n' : 'd';
+
   if (id == 0) {
-    return 'assets/icons/01d.png';
+    return 'assets/icons/01$dayOrNight.png';
   }
   if (id == 1) {
     return 'assets/icons/6.png';
   }
   if (id == 2) {
-    return 'assets/icons/03d.png';
+    return 'assets/icons/03$dayOrNight.png';
   }
   if (id == 3) {
-    return 'assets/icons/04d.png';
+    return 'assets/icons/04$dayOrNight.png';
   }
   if (id == 45) {
-    return 'assets/icons/04d.png';
+    return 'assets/icons/04$dayOrNight.png';
   }
   if (id == 48) {
-    return 'assets/icons/04d.png';
+    return 'assets/icons/04$dayOrNight.png';
   }
   if (id == 53) {
     return 'assets/icons/39.png';
   }
   if (id > 50 && id < 60) {
-    return 'assets/icons/09d.png';
+    return 'assets/icons/09$dayOrNight.png';
   }
   if (id > 60 && id < 70) {
     return 'assets/icons/7.png';
   }
   if (id >= 70 && id < 80) {
-    return 'assets/icons/04d';
+    return 'assets/icons/04$dayOrNight.png';
   }
   if (id >= 80 && id < 85) {
     return 'assets/icons/7.png';
   }
   if (id > 85) {
-    return 'assets/icons/13d.png';
+    return 'assets/icons/13$dayOrNight.png';
   }
 
-  return 'assets/icons/01d.png';
+  return 'assets/icons/01$dayOrNight.png';
 }
+
 
 
 

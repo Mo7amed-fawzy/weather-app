@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:weather_app/presentation/providers/get_current_weather_provider.dart';
-import 'package:weather_app/presentation/views/gradient_container.dart';
-import 'package:weather_app/presentation/views/hourly_forecast_view.dart';
-import 'package:weather_app/presentation/views/weather_info.dart';
+import 'package:weather_app/features/data/providers/get_current_weather_provider.dart';
+import 'package:weather_app/features/home/views/gradient_container.dart';
+import 'package:weather_app/features/home/views/hourly_forecast_view.dart';
+import 'package:weather_app/features/home/views/weather_info.dart';
 import 'package:weather_app/utils/constants/text_styles.dart';
 import 'package:weather_app/utils/extensions/datetime.dart';
 
@@ -30,8 +30,9 @@ class WeatherScreen extends ConsumerWidget {
               SizedBox(
                 height: 260,
                 child: Image.asset(
-                    'assets/icons/${screenweather.weather[0].icon.replaceAll('n', 'd')}.png'),
-                // ببدل كل n , d ببعض
+                    'assets/icons/${screenweather.weather[0].icon}.png'),
+                // ببدل كل n ب d علشان معنديش صور ليل كله نهار
+                //screenweather.weather[0].icon => 01n ,  replaceAll('n', 'd')}.png => 01d
               ),
               const SizedBox(height: 40),
               Text(screenweather.weather[0].description, style: TextStyles.h2),
@@ -40,7 +41,7 @@ class WeatherScreen extends ConsumerWidget {
           const SizedBox(height: 40),
 
           // Weather info in a row
-          WeatherInfo(weather: screenweather),
+          WeatherInfo(weatherInfoMObj: screenweather),
 
           const SizedBox(height: 40),
 

@@ -6,10 +6,10 @@ import 'package:weather_app/utils/models/weather.dart';
 class WeatherInfo extends StatelessWidget {
   const WeatherInfo({
     super.key,
-    required this.weather,
+    required this.weatherInfoMObj,
   });
 
-  final Weather weather;
+  final Weather weatherInfoMObj;
 
   @override
   Widget build(BuildContext context) {
@@ -20,15 +20,15 @@ class WeatherInfo extends StatelessWidget {
         children: [
           WeatherInfoTile(
             title: 'Temp',
-            value: '${weather.main.temp}°',
+            value: '${weatherInfoMObj.main.temp}°',
           ),
           WeatherInfoTile(
             title: 'Wind',
-            value: '${weather.wind.speed.kmh} km/h',
+            value: '${weatherInfoMObj.wind.speed.kmh} km/h',
           ),
           WeatherInfoTile(
             title: 'Humidity',
-            value: '${weather.main.humidity}%',
+            value: '${weatherInfoMObj.main.humidity}%',
           ),
         ],
       ),
