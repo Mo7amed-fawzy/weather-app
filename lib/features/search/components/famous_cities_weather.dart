@@ -1,6 +1,5 @@
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:weather_app/features/details/weather_detail_screen.dart';
+import 'package:weather_app/features/search/screens/weather_detail_screen.dart';
 import 'package:weather_app/features/search/widgets/city_weather_tile.dart';
 import 'package:weather_app/utils/models/famous_city_local.dart';
 
@@ -11,10 +10,6 @@ class FamousCitiesWeather extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    if (kDebugMode) {
-      print('Number of cities: ${famousCities.length}');
-    } // لطباعة عدد المدن
-
     return GridView.builder(
       itemCount: famousCities.length,
       shrinkWrap: true,
@@ -26,16 +21,12 @@ class FamousCitiesWeather extends StatelessWidget {
       ),
       itemBuilder: (context, index) {
         final city = famousCities[index];
-        if (kDebugMode) {
-          print('City name: ${city.name}');
-        }
+        // علشان اجيب الداتا من الاي بي اي بدي الاندكس لهنا
 
         return InkWell(
           onTap: () {
             Navigator.of(context).push(MaterialPageRoute(
-                builder: (_) => WeatherDetailScreen(
-                      cityName: city.name,
-                    )));
+                builder: (_) => WeatherDetailScreen(cityName: city.name)));
           },
           child: FamousCityTile(
             index: index,

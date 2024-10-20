@@ -6,7 +6,27 @@ import 'package:weather_app/features/home/components/weather_info.dart';
 import 'package:weather_app/utils/constants/text_styles.dart';
 import 'package:weather_app/utils/extensions/datetime.dart';
 import 'package:weather_app/utils/extensions/strings.dart';
+import 'package:weather_app/utils/widgets/custom_back_arrow.dart';
 
+// class WeatherDetailScreen extends ConsumerWidget {
+//   const WeatherDetailScreen({
+//     super.key,
+//     required this.cityName,
+//   });
+
+//   final String cityName;
+
+//   @override
+//   Widget build(BuildContext context, WidgetRef ref) {
+//     final weatherData = ref.watch((cityForecastProvider(cityName)));
+
+//     return Scaffold(
+//       // appBar: AppBar(
+//       //   backgroundColor: Colors.red,
+//       //   automaticallyImplyLeading: false, // بشيل السهم الديفولت
+//       //   titleSpacing: 0, // بشيل البادنج الديفولت
+//       //   title: Text('das'),
+//       // ),
 class WeatherDetailScreen extends ConsumerWidget {
   const WeatherDetailScreen({
     super.key,
@@ -17,13 +37,17 @@ class WeatherDetailScreen extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final weatherData = ref.watch((cityForecastProvider(cityName)));
+    final cityWeatherData = ref.watch((cityForecastProvider(cityName)));
 
     return Scaffold(
-      body: weatherData.when(
+      body:
+          //  Stack( // دي طريقة مختلفه باستخدام ستاك
+          //   children: [
+          cityWeatherData.when(
         data: (weather) {
           return GradientContainer(
             children: [
+              const BackArrowIcon(),
               Column(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
@@ -88,6 +112,23 @@ class WeatherDetailScreen extends ConsumerWidget {
           );
         },
       ),
+      // Positioned(
+      //   top: 50,
+      //   left: 16,
+      //   child: IconButton(
+      //     iconSize: 26,
+      //     // alignment: Alignment.centerRight,
+      //     onPressed: () {
+      //       Navigator.pop(context);
+      //     },
+      //     icon: const Icon(
+      //       Icons.arrow_back_ios,
+      //       color: Colors.white,
+      //     ),
+      //   ),
+      // ),
+      //   ],
+      // ),
     );
   }
 }

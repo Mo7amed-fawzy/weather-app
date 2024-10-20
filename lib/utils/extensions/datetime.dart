@@ -5,8 +5,8 @@ extension FormatDateTime on DateTime {
   // بستعمل اكستنشن علشان اعمل custom functionality علي دات تايم
   String get dateTime =>
       // بضيف getter جديده لكلاس الدات تايم واسمها دات تايم
-      Jiffy.parseFromDateTime(this).format(pattern: 'yMMMMd');
-  // البروبيرتي بتحول اوبجكت الدات تايم ل سترنج ب jiffy (2024 October 18)
+      Jiffy.parseFromDateTime(this).format(pattern: 'yMMMd');
+  // البروبيرتي بتحول اوبجكت الدات تايم ل سترنج ب jiffy (2024 October 18) خليتها مختلفه فاختصار الشهر
 }
 //parseFromDateTime(this) كدا بحول الدات تايم الاساسي اوبجكت ل jiffy اوبجكت
 

@@ -21,7 +21,7 @@ class FamousCityTile extends ConsumerWidget {
     final currentWeather = ref.watch(cityForecastProvider(city.name));
 
     return currentWeather.when(
-      data: (weather) {
+      data: (weatherdataScrn) {
         return Padding(
           padding: const EdgeInsets.all(
             0.0,
@@ -48,12 +48,12 @@ class FamousCityTile extends ConsumerWidget {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Text(
-                              '${weather.main.temp.round().toString()}°',
+                              '${weatherdataScrn.main.temp.round().toString()}°',
                               style: TextStyles.h2,
                             ),
                             const SizedBox(height: 5),
                             Text(
-                              weather.weather[0].description,
+                              weatherdataScrn.weather[0].description,
                               style: TextStyles.subtitleText,
                               overflow: TextOverflow.ellipsis,
                               maxLines: 2,
@@ -63,13 +63,14 @@ class FamousCityTile extends ConsumerWidget {
                       ),
                       // Row 2
                       Image.asset(
-                        getWeatherIcon(idweatherCode: weather.weather[0].id),
+                        getWeatherIcon(
+                            idweatherCode: weatherdataScrn.weather[0].id),
                         width: 50,
                       ),
                     ],
                   ),
                   Text(
-                    weather.name,
+                    weatherdataScrn.name,
                     style: TextStyle(
                       fontSize: 18,
                       color: Colors.white.withOpacity(.8),
