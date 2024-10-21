@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:weather_app/features/home/screens/home_screen.dart';
+import 'package:weather_app/utils/constants/theme_mode.dart';
 
 void main() {
   runApp(const ProviderScope(child: MainApp()));
@@ -12,9 +13,10 @@ class MainApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return MaterialApp(
+      theme: CustomThemeMode.lightMode,
       debugShowCheckedModeBanner: false,
-      home: HomeScreen(),
+      home: const HomeScreen(),
     );
   }
 }

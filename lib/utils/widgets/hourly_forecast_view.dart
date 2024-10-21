@@ -46,7 +46,8 @@ class HourlyForecastView extends ConsumerWidget {
       },
       loading: () {
         return const Center(
-          child: CustomLoadingIndicator(),
+          child: SizedBox(
+              width: 1000, height: 100, child: CustomLoadingIndicator()),
         );
       },
     );
