@@ -17,3 +17,27 @@ class AppColors {
   static const Color black = Color(0xFF000000);
   static const Color secondaryBlack = Color(0xFF060620);
 }
+
+class BackgroundColors {
+  static LinearGradient blackThemeColors = LinearGradient(
+    begin: Alignment.bottomLeft,
+    end: Alignment.topRight,
+    colors: [
+      AppColors.black,
+      AppColors.secondaryBlack,
+      AppColors.secondaryBlack.withOpacity(.99),
+      AppColors.secondaryBlack.withOpacity(.98),
+      AppColors.secondaryBlack.withOpacity(.97),
+      AppColors.secondaryBlack.withOpacity(.96),
+      AppColors.secondaryBlack.withOpacity(.95),
+      AppColors.secondaryBlack.withOpacity(.94),
+      AppColors.secondaryBlack.withOpacity(.93),
+      AppColors.secondaryBlack.withOpacity(.92),
+      AppColors.secondaryBlack.withOpacity(.91),
+      AppColors.secondaryBlack.withOpacity(.90),
+      AppColors.darkBlue,
+      AppColors.accentBlue,
+      AppColors.lightBlue,
+    ],
+  );
+}

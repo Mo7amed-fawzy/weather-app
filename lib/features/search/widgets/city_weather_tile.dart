@@ -5,6 +5,7 @@ import 'package:weather_app/utils/constants/app_colors.dart';
 import 'package:weather_app/utils/constants/text_styles.dart';
 import 'package:weather_app/utils/models/famous_city_local.dart';
 import 'package:weather_app/utils/util/get_weather_icons.dart';
+import 'package:weather_app/utils/widgets/custom_loading_indicator.dart';
 
 class FamousCityTile extends ConsumerWidget {
   const FamousCityTile({
@@ -90,7 +91,9 @@ class FamousCityTile extends ConsumerWidget {
       },
       loading: () {
         return const Center(
-          child: CircularProgressIndicator(),
+          child: CustomLoadingIndicator(
+            isALLPage: false,
+          ),
         );
       },
     );

@@ -6,6 +6,7 @@ import 'package:weather_app/utils/constants/app_colors.dart';
 import 'package:weather_app/utils/constants/text_styles.dart';
 import 'package:weather_app/utils/extensions/datetime.dart';
 import 'package:weather_app/utils/util/get_weather_icons.dart';
+import 'package:weather_app/utils/widgets/custom_loading_indicator.dart';
 
 class WeeklyForecastView extends ConsumerWidget {
   const WeeklyForecastView({super.key});
@@ -45,7 +46,7 @@ class WeeklyForecastView extends ConsumerWidget {
       },
       loading: () {
         return const Center(
-          child: CircularProgressIndicator(),
+          child: CustomLoadingIndicator(),
         );
       },
     );

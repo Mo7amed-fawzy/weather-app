@@ -7,6 +7,7 @@ import 'package:weather_app/utils/constants/text_styles.dart';
 import 'package:weather_app/utils/extensions/datetime.dart';
 import 'package:weather_app/utils/extensions/strings.dart';
 import 'package:weather_app/utils/widgets/custom_back_arrow.dart';
+import 'package:weather_app/utils/widgets/custom_loading_indicator.dart';
 
 // class WeatherDetailScreen extends ConsumerWidget {
 //   const WeatherDetailScreen({
@@ -108,7 +109,7 @@ class WeatherDetailScreen extends ConsumerWidget {
         },
         loading: () {
           return const Center(
-            child: CircularProgressIndicator(),
+            child: CustomLoadingIndicator(),
           );
         },
       ),

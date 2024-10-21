@@ -6,6 +6,7 @@ import 'package:weather_app/utils/constants/text_styles.dart';
 import 'package:weather_app/utils/extensions/int.dart';
 import 'package:weather_app/utils/functions/is_night_time.dart';
 import 'package:weather_app/utils/util/get_weather_icons.dart';
+import 'package:weather_app/utils/widgets/custom_loading_indicator.dart';
 
 class HourlyForecastView extends ConsumerWidget {
   const HourlyForecastView({
@@ -45,7 +46,7 @@ class HourlyForecastView extends ConsumerWidget {
       },
       loading: () {
         return const Center(
-          child: CircularProgressIndicator(),
+          child: CustomLoadingIndicator(),
         );
       },
     );
@@ -79,7 +80,7 @@ class HourlyForcastTile extends StatelessWidget {
       child: Material(
         // بتدي خواص كتير زي ripple effect
         color: isActive ? AppColors.lightBlue : AppColors.accentBlue,
-        borderRadius: BorderRadius.circular(15.0),
+        borderRadius: BorderRadius.circular(15),
         elevation: isActive ? 8 : 0,
         child: Padding(
           padding: const EdgeInsets.symmetric(
